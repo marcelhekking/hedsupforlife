@@ -1,0 +1,27 @@
+{
+  "name": "hedsupforlife",
+  "version": "0.1.0",
+  "description": "Node.js packages for the hedsupforlife website",
+  "main": "index.js",
+  "author": "Marcel Hekking",
+  "license": "MIT",
+  "dependencies": {
+    "@tailwindcss/typography": "^0.5.15",
+    "flowbite-typography": "^1.0.5"
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^5.0.0",
+    "autoprefixer": "^10.4.17",
+    "cssnano": "^6.0.3",
+    "eslint": "^7.7.0",
+    "eslint-plugin-html": "^6.0.3",
+    "flowbite": "^2.2.1",
+    "postcss": "^8.4.33",
+    "postcss-cli": "^11.0.0",
+    "tailwindcss": "^3.4.1"
+  },
+  "scripts": {
+    "cssbuild": "postcss ./src/static/css/tailwind.css -o ./src/static/css/main.css",
+    "csswatch": "postcss ./src/static/css/tailwind.css -o ./src/static/css/main.css --watch"
+  }
+}

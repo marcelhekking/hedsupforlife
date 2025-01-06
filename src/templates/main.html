@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static i18n wagtailcore_tags wagtailimages_tags %}
+
+{% block main %}
+
+  <body class="bg-blue-500" id="page-top">
+
+    <!-- Google Tag Manager (noscript) -->
+
+    <!-- End Google Tag Manager (noscript) -->
+
+    <header>
+      <div>
+        <!-- Masthead Heading-->
+        <h1 class="bg-indigo-900 mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">{{ page.title|richtext }}</h1>
+        <!-- Icon Divider-->
+        <div>
+          <div class="bg-indigo-900  text-white">{{ page.welcome|richtext }}</div>
+        </div>
+      </div>
+    </header>
+
+
+    {% block main_content %}
+    {% endblock %}
+
+
+  </body>
+
+{% endblock %}

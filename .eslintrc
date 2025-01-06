@@ -1,0 +1,17 @@
+{
+  "rules": {
+    //"quotes": [2, "single"],
+    "eol-last": [0],
+    "no-mixed-requires": [0],
+    "no-underscore-dangle": [0]
+  },
+  "plugins": [
+      "html"
+  ],
+    "settings": {
+        //"html/indent": "0",   // code should start at the beginning of the line (no initial indentation).
+        "html/indent": "+2",  // indentation is the <script> indentation plus two spaces.
+        //"html/indent": "tab", // indentation is one tab at the beginning of the line.
+        "html/report-bad-indent": "error"
+    }
+}

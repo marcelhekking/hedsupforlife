@@ -1,0 +1,97 @@
+[project]
+name = "hedsupforlife"
+description = "Heds Up For Life! Website"
+version = "0.1.0"
+authors = [{ name = "Marcel Hekking", email = "marcelhekking@gmail.com" }]
+dependencies = [
+    "wagtail==5.2.3",
+    "psycopg2-binary==2.9.7",
+    "gunicorn==21.2.0",
+    "ctrl-z==1.5.1",
+    "wagtail-font-awesome-svg==1.0.1",
+    "sentry-sdk>=2.13.0",
+    "pytest==7.4.0",
+    "django-webtest==1.9.11",
+    "pytest-django==4.7.0",
+    "factory-boy==3.3.0",
+    "wagtail-factories==4.1.0",
+    "python-environ>=0.4.54",
+]
+requires-python = ">=3.11"
+readme = "README.md"
+license = { text = "MIT" }
+
+[tool.uv]
+dev-dependencies = [
+    "debugpy>=1.8.9",
+    "django-browser-reload>=1.17.0",
+    "django-debug-toolbar>=4.4.6",
+]
+
+
+[tool.sync-pre-commit-lock]
+automaticall-install-hooks = true
+disable-sync-from-lock = false
+ignore = []
+pre-commit-config-file = ".pre-commit-config.yaml"
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "hedsupforlife.settings.develop"
+testpaths = "tests/"
+django_find_project = false
+addopts = "--color=yes --reuse-db --nomigrations --disable-warnings"
+
+[tool.ruff]
+src = ["src", "tests"]
+target-version = "py311"
+exclude = ["migrations"]
+lint.select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "C",  # flake8-comprehensions
+    "DJ", # flake8-django, for django project only!
+    "B",  # flake8-bugbear
+    # "ANN", # flake8-annotations
+    "Q",   # flake8-quotes
+    "PTH", # flake8-pathlib
+]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 8
+
+[tool.ruff.lint.flake8-quotes]
+docstring-quotes = "double"
+inline-quotes = "double"
+multiline-quotes = "double"
+
+[tool.ruff.lint.flake8-annotations]
+allow-star-arg-any = true
+
+[tool.isort]
+profile = 'black'
+balanced_wrapping = true
+default_section = "THIRDPARTY"
+include_trailing_comma = true
+known_first_party = ["hedsupforlife", "tests"]
+multi_line_output = 3
+skip_glob = "*migrations/*.py"
+use_parentheses = true
+
+[tool.mypy]
+python_version = "3.11"
+check_untyped_defs = true
+ignore_missing_imports = true
+no_implicit_optional = true
+strict_equality = true
+warn_no_return = true
+warn_redundant_casts = true
+warn_return_any = true
+warn_unreachable = true
+warn_unused_configs = true
+exclude = "migrations"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
