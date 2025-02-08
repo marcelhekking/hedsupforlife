@@ -26,6 +26,7 @@ dev-dependencies = [
     "debugpy>=1.8.9",
     "django-browser-reload>=1.17.0",
     "django-debug-toolbar>=4.4.6",
+    "ruff>=0.9.5",
 ]
 
 

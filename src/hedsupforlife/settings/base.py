@@ -33,7 +33,10 @@ DEBUG = os.getenv("DEBUG", False)
 INSTALLED_APPS = [
     # project apps...
     "hedsupforlife",
+    "hedsupforlife.blog",
     "hedsupforlife.home",
+    "hedsupforlife.images",
+    "hedsupforlife.utils",
     # wagtail apps...
     "wagtail.locales",
     "wagtail.contrib.forms",
@@ -53,6 +56,7 @@ INSTALLED_APPS = [
     "taggit",
     # django apps...
     "django_browser_reload",
+    "wagtail.contrib.settings",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.sites",
@@ -158,6 +162,9 @@ WAGTAILSEARCH_BACKENDS = {
         "BACKEND": "wagtail.search.backends.database",
     }
 }
+
+# Pagination
+DEFAULT_PER_PAGE = 8
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash

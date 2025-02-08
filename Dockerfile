@@ -15,7 +15,7 @@ WORKDIR /home/app
 # copy the TOML files and sync the dependencies
 COPY uv.lock pyproject.toml /home/app/
 RUN --mount=type=cache,target=/root/.cache/uv \
-  uv sync --frozen --no-install-project --no-dev
+	uv sync --frozen --no-install-project --no-dev
 
 # set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
@@ -23,13 +23,13 @@ ENV PYTHONUNBUFFERED 1
 
 # install Ubuntu dependencies
 RUN apk update \
-    && apk add postgresql-dev gcc python3-dev musl-dev \
-    && apk add jpeg-dev zlib-dev libjpeg libjpeg-turbo-dev libpng-dev freetype-dev \
-    && apk add libpq postgresql-client
+	&& apk add postgresql-dev gcc python3-dev musl-dev \
+	&& apk add jpeg-dev zlib-dev libjpeg libjpeg-turbo-dev libpng-dev freetype-dev \
+	&& apk add libpq postgresql-client
 
 COPY . /home/app
 RUN --mount=type=cache,target=/root/.cache/uv \
-    uv sync --frozen --no-dev
+	uv sync --frozen --no-dev
 
 #########
 # FINAL #
