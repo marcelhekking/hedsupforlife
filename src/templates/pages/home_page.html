@@ -18,7 +18,7 @@
           <div class=" lg:mt-0 lg:col-span-8 lg:flex rounded-full">
             <img src="{{ img.url }}" alt="{{ img.alt }}">
           </div>
-          {{ page.titl }}
+          {{ page.title }}
         </div>
 
       </a>
@@ -63,10 +63,10 @@
     <!--Left Col-->
     <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
       <h1 class="my-4 text-5xl font-bold leading-tight">
-        {{ page.title }}
+        {{ page.introduction|richtext }}
       </h1>
       <p class="leading-normal text-2xl mb-8">
-        {{ page.hoofdpagina_welkom_tekst }}
+
       </p>
       <button
         class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
@@ -106,21 +106,16 @@
 <section class="bg-white border-b py-8">
   <div class="container max-w-5xl mx-auto m-8">
     <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-      Test
+      {% include "components/streamfield/blocks/section_block_heading.html" with value=page.body.value %}
     </h2>
     <div class="w-full mb-4">
       <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
     </div>
     <div class="flex flex-wrap">
       <div class="w-5/6 sm:w-1/2 p-6">
-        <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
-          Lorem ipsum dolor sit amedkjkfjkjt
-        </h3>
-        <p class="text-gray-600 mb-8">
-          dfljldjlkj
-          <br />
-          <br />
-        </p>
+        <div class=" text-gray-800  mb-3">
+          {% include_block page.body %}
+        </div>
       </div>
     </div>
     <div class="flex flex-wrap flex-col-reverse sm:flex-row">
