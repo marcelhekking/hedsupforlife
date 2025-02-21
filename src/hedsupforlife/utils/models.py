@@ -1,4 +1,5 @@
 from io import BytesIO
+from pathlib import Path
 
 from bs4 import BeautifulSoup
 from django.contrib.staticfiles.finders import find
@@ -137,7 +138,7 @@ class ArticleTopic(models.Model):
                 with transaction.atomic(using=using):
                     res = super().save(*args, **kwargs)
                 return res
-            except  IntegrityError:
+            except IntegrityError:
                 pass
             # Now try to find existing slugs with similar titles
             slugs = set(
@@ -206,7 +207,7 @@ class SocialMediaSettings(BaseSiteSetting):
         max_length=255,
         blank=True,
         help_text="Default sharing text to use if social text has not been "
-            "set on a page.",
+        "set on a page.",
     )
 
 
@@ -282,7 +283,7 @@ class SystemMessagesSettings(BaseSiteSetting):
         # Get the absolute path to the image file
         absolute_path = find("images/placeholder-image.webp")
         if absolute_path:
-            with open(absolute_path, "rb") as f:
+            with Path.open(absolute_path, "rb") as f:
                 image_bytes = f.read()
 
             img_file = ImageFile(BytesIO(image_bytes), name="Placeholder Image")

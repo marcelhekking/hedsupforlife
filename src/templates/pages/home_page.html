@@ -68,10 +68,6 @@
       <p class="leading-normal text-2xl mb-8">
 
       </p>
-      <button
-        class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-        Subscribe
-      </button>
     </div>
     <!--Right Col-->
     <div class="hidden lg:mt-0 lg:col-span-6 lg:flex">
@@ -103,65 +99,67 @@
     </g>
   </svg>
 </div>
+
 <section class="bg-white border-b py-8">
   <div class="container max-w-5xl mx-auto m-8">
-    <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-      {% include "components/streamfield/blocks/section_block_heading.html" with value=page.body.value %}
-    </h2>
-    <div class="w-full mb-4">
-      <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
-    </div>
     <div class="flex flex-wrap">
       <div class="w-5/6 sm:w-1/2 p-6">
         <div class=" text-gray-800  mb-3">
           {% include_block page.body %}
         </div>
       </div>
-    </div>
-    <div class="flex flex-wrap flex-col-reverse sm:flex-row">
-      <div class="w-full sm:w-1/2 p-6 mt-6">
-
-      </div>
-      <div class="w-full sm:w-1/2 p-6 mt-6">
+      <aside class="float-right w-full sm:w-1/2 p-6">
         <div class="align-middle">
-          <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
+          <h3 class=" text-gray-800 font-bold leading-none mb-3">
             <div class="col-span-2 space-y-8 md:grid md:grid-cols-2 md:gap-12 md:space-y-0">
               <div>
                 <h3 class="mb-2 text-2xl font-bold dark:text-white">De
-                  Stelvio</h3>
+                  Stelvio
+                </h3>
                 <p class="font-light text-gray-500 dark:text-gray-400">
-                  Wat is de Stelvio</p>
+                  rspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+                  aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+                  explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+                  consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui
+                  dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora
+                  incidunt ut labore et dolore magnam aliquam quaerat volupt
+                </p>
+
               </div>
               <div>
                 <h3 class="mb-2 text-2xl font-bold dark:text-white">De
-                  DRUP studie</h3>
+                  DRUP studie
+                </h3>
                 <p class="font-light text-gray-500 dark:text-gray-400">
-                  Uitleg DRUP studie</p>
+                  Uitleg DRUP studie p ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+                  explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+                  consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui
+                  dolorem ipsum quia dolor sit am
+                </p>
               </div>
               <div>
                 <h3 class="mb-2 text-2xl font-bold dark:text-white">DNA
-                  onderzoek</h3>
+                  onderzoek
+                </h3>
                 <p class="font-light text-gray-500 dark:text-gray-400">
-                  Uitleg DNA sequencing en genoom onderzoek</p>
+                  Uitleg DNA sequencing en genoom onderzoek
+                </p>
               </div>
               <div>
                 <h3 class="mb-2 text-2xl font-bold dark:text-white">5+
                   Million</h3>
                 <p class="font-light text-gray-500 dark:text-gray-400">
-                  Transactions per day</p>
+                  Transactions per day
+                </p>
               </div>
             </div>
           </h3>
-          <p class="text-gray-600 mb-8">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at
-            ipsum eu nunc commodo posuere et sit amet ligula.
-            <br />
-            <br />
-            Images from:
-
-            <a class="text-pink-500 underline" href="https://undraw.co/">undraw.co</a>
-          </p>
         </div>
+      </aside>
+    </div>
+    <div class="flex flex-wrap flex-col-reverse sm:flex-row">
+      <div class="w-full sm:w-1/2 p-6 mt-6">
+
       </div>
     </div>
   </div>
@@ -356,8 +354,15 @@
   </g>
 </svg>
 <section class="container mx-auto text-center py-6 mb-12">
+
+            {% if page.hero_cta %}
+                <div class="pt-10">
+                    {% include "components/button.html" with title=page.hero_cta.0.value.get_title url=page.hero_cta.0.value.get_url %}
+                </div>
+            {% endif %}
+
   <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-white">
-    Kom in actie en doneer!
+    
   </h2>
   <div class="w-full mb-4">
     <div class="h-1 mx-auto bg-white w-1/6 opacity-25 my-0 py-0 rounded-t"></div>
