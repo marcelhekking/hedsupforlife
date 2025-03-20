@@ -18,7 +18,6 @@ class HomePage(BasePage):
         use_json_field=True,
     )
     body = StreamField(StoryBlock(), use_json_field=True)
-
     search_fields = BasePage.search_fields + [index.SearchField("introduction")]
 
     content_panels = BasePage.content_panels + [

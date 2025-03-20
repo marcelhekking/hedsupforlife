@@ -15,7 +15,7 @@ class ArticlePage(BasePage):
     parent_page_types = ["blog.BlogListingPage"]
 
     author = models.ForeignKey(
-        "utils.AuthorSnippet",
+        "utils.MemberSnippet",
         blank=False,
         null=False,
         on_delete=models.deletion.PROTECT,

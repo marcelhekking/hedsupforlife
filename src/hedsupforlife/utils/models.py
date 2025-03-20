@@ -100,8 +100,8 @@ class ListingFields(models.Model):
 
 
 @register_snippet
-class AuthorSnippet(models.Model):
-    title = models.CharField(blank=False, max_length=255)
+class MemberSnippet(models.Model):
+    name = models.CharField(blank=False, max_length=255)
     image = models.ForeignKey(
         "images.CustomImage",
         null=True,
@@ -109,9 +109,11 @@ class AuthorSnippet(models.Model):
         on_delete=models.SET_NULL,
         related_name="+",
     )
+    intro = models.CharField(blank=False, max_length=255)
+    bio = models.TextField(blank=True)
 
     def __str__(self):
-        return self.title
+        return self.name
 
 
 @register_snippet

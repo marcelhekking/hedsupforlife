@@ -1,4 +1,3 @@
-
 from wagtail import blocks
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.snippets.blocks import SnippetChooserBlock
@@ -147,9 +146,7 @@ class FeaturedArticleBlock(blocks.StructBlock):
 
 class BaseSectionBlock(blocks.StructBlock):
     heading = blocks.CharBlock(
-        form_classname="title",
-        icon="title",
-        required=True
+        form_classname="title", icon="title", required=True
     )  # Should use H2s only
     sr_only_label = blocks.BooleanBlock(
         required=False,
@@ -164,9 +161,7 @@ class BaseSectionBlock(blocks.StructBlock):
 
 class StatisticSectionBlock(BaseSectionBlock):
     statistics = blocks.ListBlock(
-        SnippetChooserBlock(
-            "utils.Statistic"
-        ),
+        SnippetChooserBlock("utils.Statistic"),
         max_num=3,
         min_num=3,
     )
@@ -176,12 +171,20 @@ class StatisticSectionBlock(BaseSectionBlock):
         template = "components/streamfield/blocks/stat_block.html"
 
 
-class CTASectionBlock(blocks.StructBlock):
-    heading = blocks.CharBlock(
-        form_classname="title",
-        icon="title",
-        required=True
+class MembersBlock(BaseSectionBlock):
+    members = blocks.ListBlock(
+        SnippetChooserBlock("utils.MemberSnippet"),
+        max_num=5,
+        min_num=5,
     )
+
+    class Meta:
+        icon = "snippet"
+        template = "components/streamfield/blocks/team_member_block.html"
+
+
+class CTASectionBlock(blocks.StructBlock):
+    heading = blocks.CharBlock(form_classname="title", icon="title", required=True)
     link = LinkStreamBlock()
     description = blocks.TextBlock(required=False)
 
@@ -198,6 +201,7 @@ class BaseCardSectionBlock(BaseSectionBlock):
         min_num=3,
         label="Card",
     )
+
     class Meta:
         abstract = True
         icon = "doc-full"
@@ -238,6 +242,7 @@ class StoryBlock(blocks.StreamBlock):
     section = SectionBlock()
     cta = CTASectionBlock()
     statistics = StatisticSectionBlock()
+    members = MembersBlock()
 
     class Meta:
         template = "components/streamfield/stream_block.html"
