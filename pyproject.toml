@@ -4,8 +4,9 @@ description = "Heds Up For Life! Website"
 version = "0.1.0"
 authors = [{ name = "Marcel Hekking", email = "marcelhekking@gmail.com" }]
 dependencies = [
-    "wagtail==5.2.3",
-    "psycopg2-binary==2.9.7",
+    "django>=4.2,<5.2",
+    "wagtail>=6.2,<6.3",
+    "psycopg[binary]",
     "gunicorn==21.2.0",
     "ctrl-z==1.5.1",
     "wagtail-font-awesome-svg==1.0.1",
