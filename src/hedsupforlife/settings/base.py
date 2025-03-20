@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     "wagtail.images",
     "wagtail.search",
     "wagtail.admin",
-    "wagtail.contrib.modeladmin",
     "wagtail",
     "wagtailfontawesomesvg",
     "modelcluster",
@@ -162,6 +161,12 @@ WAGTAILSEARCH_BACKENDS = {
         "BACKEND": "wagtail.search.backends.database",
     }
 }
+
+# Custom image model
+# https://docs.wagtail.io/en/stable/advanced_topics/images/custom_image_model.html
+WAGTAILIMAGES_IMAGE_MODEL = "images.CustomImage"
+WAGTAILIMAGES_FEATURE_DETECTION_ENABLED = False
+
 
 # Pagination
 DEFAULT_PER_PAGE = 8
