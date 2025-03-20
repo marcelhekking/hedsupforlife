@@ -1,9 +1,11 @@
 DATABASE_NAME ?= hedsupforlife
 
-.PHONY: all clean install requirements
+.PHONY: clean reset rebuild install makemigrations migrate runserver test watch build up docker down sh shell 1024 format format_backend format_frontend format_sort sort sort_check sort_fix ruff ruff_check ruff_fix
 
 
-all: clean install frontend compilemessages exampledata
+reset:
+	find . -path "*/hedsupforlife/*/migrations/*.py" -not -name "__init__.py" -delete
+	find . -path "*/hedupforlife/*/migrations/*.pyc"  -delete
 
 clean:
 	find . -name '*.pyc' -delete
